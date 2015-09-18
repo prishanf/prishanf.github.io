@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />	
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+
+  <meta charset="utf-8">
+  <title>Comapare Lines</title>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Encode/Decode</h2>
+		
+	<textarea id="out" rows="20" cols="100" style="width:600px"></textarea>
+	<div>
+		<button onclick="encode('out')">Encode</button>
+		<button onclick="decode('out')">Decode</button>
+	</div>
+	
+	
+</div><!-- /.container -->		
+<script>
+function decode(ele){
+	if(getValue(ele)){
+ 	   $('#'+ele).val(decodeURIComponent(value));
+    }
+}
+	
+function encode(ele){
+	if(getValue(ele)){
+ 	  $('#'+ele).val(encodeURIComponent(value));
+    }
+}
+
+function getValue(ele){
+	var element = $('#'+ele);
+	return  value = element.val();
+}
+
+</script>
+</body>
+</html>

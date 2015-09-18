@@ -1,36 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CompareLinesApp">
 <head>
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
   <meta charset="utf-8">
   <title>Comapare Lines</title>
 </head>
-<body>
-	<h3>Does the Items in the target list founs in the source list? </h3>
-	<table>
+<body ng-controller="CompareLinesCtrl">
+
+  <div class="container">
+    <h1>Comapare Lines</h1>
+	<p>Does the Items in the target list founs in the source list? </p>
+	<table style="text-align: center">
 	  <tr>
 	    <td>
-	      <H2>Source List</H2>
-	<textarea id="src"rows="15" cols="50"></textarea>
-	<button onclick="sort('src')">Sort</button>
+	      	<h3>Source List</h3>
+			<textarea id="src"rows="15" cols="75"></textarea>
+			<br/>
+			<button onclick="sort('src')">Sort</button>
+			<br/><br/>
+			Pre:<input id="src-pre"  size="10" class="append"/>
+			Post:<input id="src-post" size="10" class="append"/>			
+			<button onclick="append('src')">Append</button>
 	    </td>
-			<td>
-			  <H2>Traget List</H2>
-	<textarea id="trg"rows="15" cols="50"></textarea>
-	<button onclick="sort('trg')">Sort</button>
-			</td>
+	    <td width="1%"><button id="swapList" onclick="swap()" >Swap</button></td>
+		<td>
+		  	<h3>Traget List</h3>
+			<textarea id="trg"rows="15" cols="75"></textarea>
+			<br/>
+			<button onclick="sort('trg')">Sort</button>
+			<br/><br/>
+			Pre:<input id="trg-pre"  size="10" class="append"/>
+			Post:<input id="trg-post" size="10" class="append"/>			
+			<button onclick="append('trg')">Append</button>
+		</td>
 	  </tr>
 	</table>
-
 	<br/>
 	<br/>
+	<center>
 	<button id="btn">Compare</button>
 	
-<H2>Missing Items in the Source List</H2>
-	<textarea id="miss" rows="20" cols="50"></textarea>
+	<h3>Missing Items in the Source List</h3>
+	<textarea id="miss" rows="20" cols="100"></textarea>
+	<br>
 	<button onclick="sort('miss')">Sort</button>
-	<br/>	
-<script id="jsbin-javascript">
+	<br/>
+	Pre:<input id="miss-pre"  size="10" class="append"/>
+	Post:<input id="miss-post" size="10" class="append"/>			
+	<button onclick="append('miss')">Append</button>
+	</center>
+</div><!-- /.container -->		
+<script>
 $("#btn").on('click',function(){
   var mssingArr = [];
 	var srcVals = $("#src").val();
@@ -64,6 +85,7 @@ $("#swapList").on('click',function(){
 	
 	
 });
+
 function sort(ele){
 	var srcVals = $('#'+ele).val();
 	if(srcVals){
@@ -74,6 +96,23 @@ function sort(ele){
  }
 	
 }
+	
+function append(ele){
+	var srcVals = $('#'+ele).val();
+	var pre = $('#'+ele+'-pre').val();
+	var post = $('#'+ele+'-post').val();
+	var paddArr = [];
+	if(srcVals){
+ 	 var srcValArr = srcVals.split('\n');
+	 srcValArr.forEach(function(item){
+		 item = pre+ item + post;
+		 paddArr.push(item);
+	 });
+	var sorted = paddArr.sort().join('\n');
+	 $('#'+ele).val(sorted);
+ }
+}
+
 </script>
 </body>
 </html>
