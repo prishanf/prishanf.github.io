@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+  <meta charset="utf-8">
+  <title>Comapare Lines</title>
+</head>
+<body>
+	<h3>Does the Items in the target list founs in the source list? </h3>
+	<table>
+	  <tr>
+	    <td>
+	      <H2>Source List</H2>
+	<textarea id="src"rows="15" cols="50"></textarea>
+	<button onclick="sort('src')">Sort</button>
+	    </td>
+			<td>
+			  <H2>Traget List</H2>
+	<textarea id="trg"rows="15" cols="50"></textarea>
+	<button onclick="sort('trg')">Sort</button>
+			</td>
+	  </tr>
+	</table>
+
+	<br/>
+	<br/>
+	<button id="btn">Compare</button>
+	
+<H2>Missing Items in the Source List</H2>
+	<textarea id="miss" rows="20" cols="50"></textarea>
+	<button onclick="sort('miss')">Sort</button>
+	<br/>	
+<script id="jsbin-javascript">
+$("#btn").on('click',function(){
+  var mssingArr = [];
+	var srcVals = $("#src").val();
+	var srcValArr = srcVals.split('\n');
+	
+	var trgVals = $("#trg").val();
+	var trgValArr = trgVals.split('\n');
+	trgValArr.forEach(function(tItem){
+		var trgfound = false;
+		 for(var i=0;i<srcValArr.length;i++){
+			 if(tItem==srcValArr[i]){
+				 trgfound = true;
+				 break;
+			 }
+		 }
+		if(!trgfound){
+			mssingArr.push(tItem);
+		}
+		
+	});
+	var mssingList = mssingArr.join('\n');
+	$("#miss").val(mssingList);
+	
+});
+$("#swapList").on('click',function(){
+	var srcVals = $("#src").val();
+	var trgVals = $("#trg").val();
+	var trgValArr = trgVals.split('\n');
+	$("#src").val(trgVals);
+	$("#trg").val(srcVals);
+	
+	
+});
+function sort(ele){
+	var srcVals = $('#'+ele).val();
+	if(srcVals){
+ 	 var srcValArr = srcVals.split('\n');
+	 srcValArr.sort();
+		var sorted = srcValArr.sort().join('\n');
+	 $('#'+ele).val(sorted);
+ }
+	
+}
+</script>
+</body>
+</html>
