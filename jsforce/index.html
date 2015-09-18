@@ -10,7 +10,6 @@
 meta property="og:title" content="JSforce" />
 <meta property="og:description" content="Salesforce API Library for JavaScript Applications" />
 <meta property="og:type" content="website" />
-<
 <meta property="og:site_name" content="SFDC Admin Developer Toolkit" />
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="stylesheet" href="/asset/bootstrap/css/bootstrap.min.css">
@@ -132,6 +131,7 @@ jsforce.browser.on('connect', function(conn) {
       )
     );
     profileMenu.find('.profile-name').text(userInfo.username).attr('title', userInfo.username);
+    window.jsConn=jsforce.browser.connection;
   }
 });
 jsforce.browser.on('disconnect', function() {
@@ -168,25 +168,6 @@ jsforce.browser.on('disconnect', function() {
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
-<!-- headline -->
-<div id="headline">
-  <div class="container">
-    <p class="text-center">
-      <img class="logo" src="/images/jsforce-logo-trans.png">
-    </div>
-    <p class="lead">
-      Develop Salesforce apps with JavaScript,<br>
-      whether it's running on server or web browser. 
-    </p>
-    <p class="lead">
-      <a class="btn btn-default btn-lg" href="/download/">Download</a>
-      <a class="btn btn-default btn-lg" href="https://github.com/jsforce/jsforce">View on GitHub</a>
-    </p>
-  </div>
-</div>
-
 <!-- content -->
 <div id="content">
   <div class="container">
