@@ -111,6 +111,7 @@ jsforce.browser.on('disconnect', function() {
   $('#navigation .navbar-right li.login').show();
   $('#navigation .navbar-right li.profile').hide();
 });
+conn = jsforce.browser.connection;
 </script>
 
 <div id="oauth-dialog" class="modal fade">
@@ -285,6 +286,11 @@ jsforce.browser.on('disconnect', function() {
 
   function demoController(NgTableParams) {
     var self=this;
+    conn.query("select name from Account",function(data){
+      self.account = data;
+      console.console.log(self.account);
+    });
+
     this.simpleList = [{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29}];
     this.customConfigParams = createUsingFullOptions();
     function createUsingFullOptions() {
