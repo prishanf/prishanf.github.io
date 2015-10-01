@@ -2,36 +2,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-
-<title>Document - JSforce</title>
+<title>Custom Object Field Helper</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="description" content="Salesforce API Library for JavaScript Applications">
-<meta name="keywords" content="salesforce,javascript,api,node.js">
-<meta property="og:title" content="Document - JSforce" />
-<meta property="og:description" content="Salesforce API Library for JavaScript Applications" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://jsforce.github.io/document/" />
-<meta property="og:image" content="http://jsforce.github.io/images/jsforce-logo.png" />
-<meta property="og:site_name" content="Document - JSforce" />
 <link rel="icon" type="image/png" href="/images/favicon.png">
-<link rel="stylesheet" href="/asset/bootstrap/css/bootstrap.min.css">
-<!--
-<link rel="stylesheet" href="/asset/bootstrap/css/bootstrap-theme.min.css">
--->
+<link rel="stylesheet" href="../asset/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/asset/highlight/styles/default.css">
-<link rel="stylesheet" href="/css/styles.css">
-
+<link rel="stylesheet" href="https://rawgit.com/esvit/ng-table/master/dist/ng-table.min.css">
+<link rel="stylesheet" href="../asset/highlight/styles/default.css">
+<link rel="stylesheet" href="../css/styles.css">
 <script>
 if (location.protocol === "http:" && location.hostname !== "localhost") {
   location.href = location.href.replace(/^http:/, 'https:');
 }
 </script>
-<script src="/asset/jquery/jquery.min.js"></script>
-<script src="/asset/bootstrap/js/bootstrap.min.js"></script>
-<script src="/asset/highlight/highlight.pack.js"></script>
+<script src="../asset/jquery/jquery.min.js"></script>
+<script src="../asset/bootstrap/js/bootstrap.min.js"></script>
+<script src="../asset/highlight/highlight.pack.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.5.0/jsforce.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="https://rawgit.com/esvit/ng-table/master/dist/ng-table.min.js"></script>
+
 <script>
 jsforce.browser.init({
   clientId: '3MVG9A2kN3Bn17hv5Z.MnUUfJRTgrq0KwgysLOXrljNJ1JB6HijwsXoNi8Imxvwi3b6pknYch_sU771SM1lTh',
@@ -39,14 +29,8 @@ jsforce.browser.init({
   proxyUrl: 'https://node-salesforce-proxy.herokuapp.com/proxy/'
 });
 </script>
-<script src="/js/main.js"></script>
-
-<script src="/js/document.js"></script>
-
-
 </head>
 <body class="document">
-
 <!-- header -->
 <div id="navigation" class="navbar navbar-fixed-top navbar-default" role="navigation">
   <div class="container">
@@ -65,48 +49,15 @@ jsforce.browser.init({
       <!--main navigation-->
       <ul class="nav navbar-nav navbar-left">
           <li class="">
-            <a href="/start/" class="menu-item" title="Getting Started">
-              Getting Started
+            <a href="/" class="menu-item" title="Getting Started">
+              Home
             </a>
           </li>
           <li class="active">
-            <a href="/document/" class="menu-item" title="Document">
+            <a href="../admin/fieldhelper.html" class="menu-item" title="Document">
               Document
             </a>
           </li>
-          <li class="">
-            <a href="/download/" class="menu-item" title="Download">Download</a>
-          </li>
-          <li class="">
-            <a href="/blog/" class="menu-item" title="Blog">
-              Blog
-
-            </a>
-          </li>
-
-
-
-
-          <li class="">
-            <a href="http://jsforce.github.io/jsforce/doc/" class="menu-item" title="API Reference">
-
-              API Reference
-
-            </a>
-          </li>
-
-
-
-
-          <li class="">
-            <a href="https://github.com/jsforce/jsforce" class="menu-item" title="GitHub">
-
-              <i class="menu-icon fa fa-2x fa-github"></i>
-
-            </a>
-          </li>
-
-
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="login">
@@ -153,6 +104,7 @@ jsforce.browser.on('connect', function(conn) {
     );
     profileMenu.find('.profile-name').text(userInfo.username).attr('title', userInfo.username);
   }
+  window.jsconn = jsforce.browser.connection;
 });
 jsforce.browser.on('disconnect', function() {
   localStorage.removeItem('sf_user_info')
@@ -204,11 +156,156 @@ jsforce.browser.on('disconnect', function() {
 
 <!-- content -->
 <div id="content">
-  <div class="container">
+  <div ng-app="SFDCCustomObjectHelper">
     <div class="row">
-      <div class="col-md-9">Hello</div>
+        <div class="col-md-12 col-md-offset-4">
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="exampleInputName2">Object Name</label>
+              <select ng-model="ctrl.fieldType" id="select_{{$index}}" class="form-control">
+                <option>Text</option>
+                <option>Number</option>
+                 <option>Currency</option>
+                 <option>Percent</option>
+                 <option>Checkbox</option>
+             </select>
+            </div>
+         </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <div >
+              <div  ng-controller="ListCustomerObjCtrl as ctrl">
+
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="exampleInputName2">Type</label>
+                    <select ng-model="ctrl.fieldType" id="select_{{$index}}" class="form-control">
+                      <option>Text</option>
+                      <option>Number</option>
+                       <option>Currency</option>
+                       <option>Percent</option>
+                       <option>Checkbox</option>
+                   </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail2">Number of Fields</label>
+                    <input type="text" class="form-control"  ng-model="ctrl.numOfFields" id="select_{{$index}}" placeholder="Number of fields">
+                  </div>
+                  <button class="btn btn-default" ng-click="ctrl.addMultipleFields()">Add Multiple</button>
+
+                <br/>
+                  <br/>
+                <ul class="list-group">
+                  <div class="form-group">
+                  <li  class="list-group-item" ng-repeat="field in ctrl.fields">
+                    <select ng-model="field.type" id="select_{{$index}}" class="form-control"  >
+                        <option>Text</option>
+                        <option>Number</option>
+                        <option>Currency</option>
+                        <option>Percent</option>
+                        <option>Checkbox</option>
+                    </select>
+                    <input type="text" ng-model="field.label"  ng-change="ctrl.change(field)" aria-labelledby="select_{{$index}}" placeholder="Label" />
+                    <input type="text" ng-model="field.api" aria-labelledby="select_{{$index}}" placeholder="API" />
+                    <input style="width:70px" type="text" ng-model="field.length" aria-labelledby="select_{{$index}}" placeholder="Length" ng-hide="field.type =='Currency' || field.type =='Percent' || field.type =='Checkbox'" />
+                    <input style="width:70px"type="text" ng-model="field.precision" aria-labelledby="select_{{$index}}" placeholder="Precision" ng-show="field.type=='Currency' || field.type =='Percent'"/>
+                    <input style="width:70px" type="text" ng-model="field.scale" aria-labelledby="select_{{$index}}"    placeholder="Scale"  ng-show="field.type=='Currency' || field.type =='Percent'"/>
+                    <span ng-click="ctrl.clearContact(field)" class="glyphicon glyphicon-remove-circle" aria-hidden="true">
+                    <span ng-click="ctrl.removeContact(field)" class="glyphicon glyphicon-trash" aria-hidden="true">
+
+                  </li>
+                  <li class="list-group-item"><span ng-click="ctrl.addContact()" class="glyphicon glyphicon-plus" aria-hidden="true"></span></li>
+                  </div>
+                </ul>
+                  </form>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-6">
+            <div ng-controller="demoController as demo">
+            <table ng-table="demo.customConfigParams" class="table table-condensed table-bordered table-striped">
+              <tr ng-repeat="row in $data">
+                <td data-title="'Label'">{{row.name}}</td>
+                <td data-title="'API Name'">{{row.age}}</td>
+                <td data-title="'Type'">{{row.age}}</td>
+                <td data-title="'Read Only'">{{row.age}}</td>
+                <td data-title="'Custom'">{{row.age}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
 	</div>
   </div>
 </div>
+<script type="text/javascript">
+  var app = angular.module('SFDCCustomObjectHelper',["ngTable"]);
+    app.controller('ListCustomerObjCtrl',function(){
+      this.fieldType ='Text';
+      this.tab
+      this.numOfFields=1;
+      this.fields = [
+          {type:'Text', label:'', length:18, fullName:'', precision:'',scale:'',api:'a'},
+          {type:'Text', label:'', length:18, fullName:'', precision:'',scale:'',api:'p'}
+        ];
+
+     this.addContact = function() {
+       this.fields.push({type:'email', value:'yourname@example.org'});
+     };
+
+     this.removeContact = function(contactToRemove) {
+       var index = this.fields.indexOf(contactToRemove);
+       this.fields.splice(index, 1);
+     };
+
+     this.clearContact = function(contact) {
+       contact.label = '';
+       contact.api = '';
+       contact.length ='';
+     };
+
+     this.addMultipleFields =function () {
+       for(var i=0; i<this.numOfFields;i++){
+           this.fields.push({type: this.fieldType, label:''});
+       }
+     }
+     this.change = function(val){
+       val.api = val.label.replace(/[/\s-]/g,'_')+'__c';
+     }
+  });
+
+  app.controller("demoController", demoController);
+  demoController.$inject = ["NgTableParams"];
+
+  function demoController(NgTableParams) {
+    var self=this;
+    this.simpleList = [{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29}];
+    this.customConfigParams = createUsingFullOptions();
+    function createUsingFullOptions() {
+      var initialParams = {
+        count: 5 // initial page size
+      };
+      var initialSettings = {
+        // page size buttons (right set of buttons in demo)
+        counts: [5,10],
+        // determines the pager buttons (left set of buttons in demo)
+        paginationMaxBlocks: 5,
+        paginationMinBlocks: 2,
+        dataset: self.simpleList
+      };
+      return new NgTableParams(initialParams, initialSettings);
+    }
+
+  }
+
+</script>
+
+
 </body>
-</html>	  
+</html>
