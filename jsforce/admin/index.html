@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <title>Index</title>
     <link rel="stylesheet" href="../asset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
   </head>
-  <body ng-app="SFDCAdminHelper">
+  <body ng-app="SFDCAdminHelper" class="document">
     <div id="navigation" class="navbar navbar-fixed-top navbar-default" role="navigation">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,7 +18,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/" title="Top">SFDC Admin Pro</a>
+          <a class="navbar-brand" href="/" title="Top">SFDC Admin Pro1</a>
         </div>
         <!--everything within this div is collapsed on mobile-->
         <div class="collapse navbar-collapse" id="global-navbar">
@@ -45,6 +46,8 @@
         <!--/.navbar-collapse -->
       </div>
     </div>
+
+
     <div id="oauth-dialog" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -72,9 +75,31 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <div ng-controller="SFDCObjectController as ctrl">
-        {{ctrl.objects}}
+
+    <!-- headline -->
+    <div id="headline">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-11">
+            <h2>Document</h2>
+            <p>JSforce library document with brief usage examples of each API</p>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div id="content">
+      <div class="row">
+        <div class="col-md-12">
+              <div ng-controller="SFDCObjectController as ctrl">
+                  {{ctrl.objects}}
+                  {{ctrl.artist}}
+              </div>
+        </div>
+
+      </div>
+    </div>
+
     <script src="../asset/jquery/jquery.min.js"></script>
     <script src="../asset/bootstrap/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.5.0/jsforce.min.js"></script>
