@@ -8,6 +8,15 @@ SFDCAdminHelperControllers
   // }
 
   service.getArtist = function() {
+    console.log('aaa1');
+    $.get('/data.json',function( d ) {
+      alert( "Load was performed." + d );
+      console.log('aaa2');
+    });
+    console.log('aaa3');
+  }
+
+  service.Objects = function() {
     conn.describeGlobal(function(err, res) {
         if (err) { return console.error(err); }
         var objNames= res.sobjects.filter(function(item){
