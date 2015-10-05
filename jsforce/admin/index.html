@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="../asset/bootstrap/css/bootstrap.min.css">
+
+  </head>
+  <body ng-app="SFDCAdminHelper">
+    <div id="navigation" class="navbar navbar-fixed-top navbar-default" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#global-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/" title="Top">SFDC Admin Pro</a>
+        </div>
+        <!--everything within this div is collapsed on mobile-->
+        <div class="collapse navbar-collapse" id="global-navbar">
+          <!--main navigation-->
+          <ul class="nav navbar-nav navbar-left">
+              <li class="active">
+                <a href="" class="menu-item" title="Home">Home</a>
+              </li>
+              <li class="">
+                <a href="../admin/fieldhelper.html" class="menu-item" title="Test">Test</a>
+              </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="login">
+              <a href="#" onclick="$('#oauth-dialog').modal('show');">Login</a>
+            </li>
+            <li class="profile dropdown" style="display:none;">
+              <a href="#" onclick="if(confirm('Logout ?'))jsforce.browser.logout()">
+                <span class="profile-icon"></span>
+                <span class="profile-name"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!--/.navbar-collapse -->
+      </div>
+    </div>
+    <div id="oauth-dialog" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Connect to Salesforce</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="control-label col-sm-3" for="oauth2-login-url">Connecting to:</label>
+                <div class="controls col-sm-9">
+                  <select id="oauth2-login-url" class="form-control" name="loginUrl">
+                    <option value="https://login.salesforce.com">Production (login.salesforce.com)</option>
+                    <option value="https://test.salesforce.com">Sandbox (test.salesforce.com)</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary connect">Connect</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div ng-controller="SFDCObjectController as ctrl">
+  {{ctrl.artist}}
+    </div>
+    <script src="../asset/jquery/jquery.min.js"></script>
+    <script src="../asset/bootstrap/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.5.0/jsforce.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
+
+    <script src="../js/main.js" charset="utf-8"></script>
+    <script src="../js/controllers/controllers.js" charset="utf-8"></script>
+    <script src="../js/services/services.js" charset="utf-8"></script>
+
+  </body>
+</html>

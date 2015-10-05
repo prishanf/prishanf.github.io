@@ -1,0 +1,148 @@
+
+        <h2 style="color:green">Voice and Data Plan</h2><span id="j_id0:j_id2:0:SectionStyle">   
+                <table border="1" bordercolor="#ccc" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="text-align:center; width:638px"><strong>Corporate Advantage 50a</strong></td>
+                        </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Monthly Plan Rate</strong></td>
+                                <td style="width:450px;text-align:center"><script> if(!window.sfdcPage) { window.sfdcPage = new ApexDetailPage(); }UserContext.initialize({"ampm":["AM","PM"],"isAccessibleMode":false,"uiSkin":"Theme3","salesforceURL":"https://cs15.salesforce.com","dateFormat":"dd/MM/yyyy","isS1Desktop":false,"language":"en_US","locale":"en_CA","userName":"david.wong@telus.com.coins","userId":"005400000013JPK","isCurrentlySysAdminSU":false,"renderMode":"RETRO","startOfWeek":"1","dateTimeFormat":"dd/MM/yyyy h:mm a","orgPreferences":[{"index":257,"name":"TabOrganizer","value":true},{"index":113,"name":"GroupTasks","value":true}],"siteUrlPrefix":"","isDefaultNetwork":true,"labelLastModified":"1443144674000","today":"01/10/2015 11:58 AM","timeFormat":"h:mm a","userPreferences":[{"index":112,"name":"HideInlineEditSplash","value":false},{"index":114,"name":"OverrideTaskSendNotification","value":false},{"index":115,"name":"DefaultTaskSendNotification","value":false},{"index":119,"name":"HideUserLayoutStdFieldInfo","value":false},{"index":116,"name":"HideRPPWarning","value":false},{"index":87,"name":"HideInlineSchedulingSplash","value":false},{"index":88,"name":"HideCRUCNotification","value":false},{"index":89,"name":"HideNewPLESplash","value":false},{"index":90,"name":"HideNewPLEWarnIE6","value":false},{"index":122,"name":"HideOverrideSharingMessage","value":false},{"index":91,"name":"HideProfileILEWarn","value":false},{"index":93,"name":"HideProfileElvVideo","value":false},{"index":97,"name":"ShowPicklistEditSplash","value":false},{"index":92,"name":"HideDataCategorySplash","value":false},{"index":128,"name":"ShowDealView","value":false},{"index":129,"name":"HideDealViewGuidedTour","value":false},{"index":132,"name":"HideKnowledgeFirstTimeSetupMsg","value":false},{"index":104,"name":"DefaultOffEntityPermsMsg","value":false},{"index":135,"name":"HideNewCsnSplash","value":false},{"index":101,"name":"HideBrowserWarning","value":false},{"index":139,"name":"HideDashboardBuilderGuidedTour","value":true},{"index":140,"name":"HideSchedulingGuidedTour","value":false},{"index":180,"name":"HideReportBuilderGuidedTour","value":true},{"index":183,"name":"HideAssociationQueueCallout","value":true},{"index":194,"name":"HideQTEBanner","value":false},{"index":193,"name":"HideChatterOnboardingSplash","value":true},{"index":195,"name":"HideSecondChatterOnboardingSplash","value":true},{"index":270,"name":"HideIDEGuidedTour","value":false},{"index":282,"name":"HideQueryToolGuidedTour","value":false},{"index":196,"name":"HideCSIGuidedTour","value":false},{"index":271,"name":"HideFewmetGuidedTour","value":false},{"index":272,"name":"HideEditorGuidedTour","value":false},{"index":205,"name":"HideApexTestGuidedTour","value":false},{"index":206,"name":"HideSetupProfileHeaderTour","value":false},{"index":207,"name":"HideSetupProfileObjectsAndTabsTour","value":false},{"index":213,"name":"DefaultOffArticleTypeEntityPermMsg","value":false},{"index":214,"name":"HideSelfInfluenceGetStarted","value":false},{"index":215,"name":"HideOtherInfluenceGetStarted","value":false},{"index":216,"name":"HideFeedToggleGuidedTour","value":true},{"index":268,"name":"ShowChatterTab178GuidedTour","value":false},{"index":275,"name":"HidePeopleTabDeprecationMsg","value":false},{"index":276,"name":"HideGroupTabDeprecationMsg","value":false},{"index":224,"name":"HideUnifiedSearchGuidedTour","value":true},{"index":226,"name":"ShowDevContextMenu","value":true},{"index":227,"name":"HideWhatRecommenderForActivityQueues","value":false},{"index":228,"name":"HideLiveAgentFirstTimeSetupMsg","value":false},{"index":232,"name":"HideGroupAllowsGuestsMsgOnMemberWidget","value":false},{"index":233,"name":"HideGroupAllowsGuestsMsg","value":false},{"index":234,"name":"HideWhatAreGuestsMsg","value":false},{"index":235,"name":"HideNowAllowGuestsMsg","value":false},{"index":236,"name":"HideSocialAccountsAndContactsGuidedTour","value":false},{"index":237,"name":"HideAnalyticsHomeGuidedTour","value":true},{"index":238,"name":"ShowQuickCreateGuidedTour","value":false},{"index":245,"name":"HideFilePageGuidedTour","value":false},{"index":250,"name":"HideForecastingGuidedTour","value":false},{"index":251,"name":"HideBucketFieldGuide","value":false},{"index":263,"name":"HideSmartSearchCallOut","value":true},{"index":265,"name":"HideSocialProfilesKloutSplashScreen","value":false},{"index":273,"name":"ShowForecastingQuotaAttainment","value":false},{"index":280,"name":"HideForecastingQuotaColumn","value":false},{"index":301,"name":"HideManyWhoGuidedTour","value":true},{"index":284,"name":"HideExternalSharingModelGuidedTour","value":false},{"index":298,"name":"HideFileSyncBannerMsg","value":false},{"index":299,"name":"HideTestConsoleGuidedTour","value":false},{"index":302,"name":"HideManyWhoInlineEditTip","value":false},{"index":303,"name":"HideSetupV2WelcomeMessage","value":false},{"index":312,"name":"ForecastingShowQuantity","value":false},{"index":313,"name":"HideDataImporterIntroMsg","value":false},{"index":314,"name":"HideEnvironmentHubLightbox","value":false},{"index":316,"name":"HideSetupV2GuidedTour","value":false},{"index":317,"name":"HideFileSyncMobileDownloadDialog","value":false},{"index":322,"name":"HideEnhancedProfileHelpBubble","value":false},{"index":328,"name":"ForecastingHideZeroRows","value":false},{"index":330,"name":"HideEmbeddedComponentsFeatureCallout","value":false},{"index":341,"name":"HideDedupeMatchResultCallout","value":false},{"index":340,"name":"HideS1BrowserUI","value":false},{"index":346,"name":"HideS1Banner","value":false},{"index":358,"name":"HideEmailVerificationAlert","value":false},{"index":354,"name":"HideLearningPathModal","value":false},{"index":359,"name":"HideAtMentionsHelpBubble","value":false},{"index":368,"name":"LightningExperiencePreferred","value":false}],"networkId":""});
+</script><span id="j_id0:j_id2:0:j_id6:0:j_id10:0:j_id14">CAD 50.00</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Included Minutes</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:1:j_id14">200* local shareable minutes</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Additional Minutes</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:2:j_id14">100</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Canada to Canada LD</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:3:j_id14">$0.10/min</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Canada to US LD</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:4:j_id14">$0.10/min</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Voice Roaming</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:5:j_id14"></span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Included Features</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:6:j_id14">Voicemail 10<br>Caller ID<br>Conference Calling<br>Call Waiting<br>Call Forwarding**</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Additional Features</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:7:j_id14"></span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Included Data</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:8:j_id14">Canada Shareable Data Up to 500 MB***</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Additional Data</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:9:j_id14">Canada $0.05/MB</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Data Roaming</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:0:j_id10:10:j_id14">US $3/MB</span></td>
+                            </tr>    
+                    </tbody>
+                </table>
+                <br />   
+                <table border="1" bordercolor="#ccc" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="text-align:center; width:638px"><strong>Corporate Traveller 99</strong></td>
+                        </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Monthly Plan Rate</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:0:j_id14">CAD 99.00</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Included Minutes</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:1:j_id14">Unlimited National and Canada to US ( non-shareable)</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Additional Minutes</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:2:j_id14">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Canada to Canada LD</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:3:j_id14">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Canada to US LD</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:4:j_id14">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Voice Roaming</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:5:j_id14">Included US 250 Min(non-shareable)<br>Additional US $0.20 /min</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Included Features</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:6:j_id14">Voicemail 10<br>Caller ID<br>Conference Calling<br>Call Waiting<br>Call Forwarding*<br>Unlimited National Text Messaging (SMS)**<br>Additional  US Sent SMS $0.20 /SMS<br>International SMS $0.20 /SMS</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Additional Features</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:7:j_id14">N/A</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Included Data</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:8:j_id14">Included Canada  3GB ( non-shareable)**<br>Included US  500MB ( non-shareable)**</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Additional Data</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:9:j_id14">US or Canada 0.05/MB</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Data Roaming</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:0:j_id6:1:j_id10:10:j_id14">N/A</span></td>
+                            </tr>    
+                    </tbody>
+                </table>
+                <br /></span>
+        <h2 style="color:green">Voice Plan</h2><span id="j_id0:j_id2:1:SectionStyle">   
+                <table border="1" bordercolor="#ccc" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="text-align:center; width:638px"><strong>Corporate Advantage 25 Nationwide U.S</strong></td>
+                        </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Monthly Plan Rate</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:1:j_id6:0:j_id10:0:j_id14">CAD 25.00</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Included Minutes</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:1:j_id6:0:j_id10:1:j_id14">250* local shareable minutes</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Additional Minutes</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:1:j_id6:0:j_id10:2:j_id14">$0.15/min</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Canada to Canada LD</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:1:j_id6:0:j_id10:3:j_id14">Included</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Canada to US LD</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:1:j_id6:0:j_id10:4:j_id14">$0.10/min</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Included Features</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:1:j_id6:0:j_id10:5:j_id14">Voicemail 10<br>Caller ID<br>Conference Calling<br>Call Waiting<br>Call Forwarding**<br>Unlimited National Text Messaging (SMS)***</span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Additional Features</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:1:j_id6:0:j_id10:6:j_id14"></span></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%;text-align:center"><strong>Applications</strong></td>
+                                <td style="width:450px;text-align:center"><span id="j_id0:j_id2:1:j_id6:0:j_id10:7:j_id14"></span></td>
+                            </tr>    
+                    </tbody>
+                </table>
+                <br /></span>

@@ -159,17 +159,14 @@ conn = jsforce.browser.connection;
 <div id="content">
   <div ng-app="SFDCCustomObjectHelper">
     <div class="row">
-        <div class="col-md-12 col-md-offset-4">
+        <div class="col-md-12 col-md-offset-4" ng-controller="AllCustomerObjCtrl as objs">
           <form class="form-inline">
             <div class="form-group">
               <label for="exampleInputName2">Object Name</label>
-              <select ng-model="ctrl.fieldType" id="select_{{$index}}" class="form-control">
-                <option>Text</option>
-                <option>Number</option>
-                 <option>Currency</option>
-                 <option>Percent</option>
-                 <option>Checkbox</option>
-             </select>
+              <select ng-model="objs.selObj" class="form-control" ng-change="objs.clickBtn()">
+                   <option ng-repeat="option in objs.objets" value="{{option}}">{{option.name}}</option>
+              </select>
+
             </div>
          </form>
       </div>
@@ -179,7 +176,7 @@ conn = jsforce.browser.connection;
         <div class="col-md-6">
           <div >
               <div  ng-controller="ListCustomerObjCtrl as ctrl">
-
+                <h3>Crate Fields for :{{ctrl.custObj.name}}</h3>
                 <form class="form-inline">
                   <div class="form-group">
                     <label for="exampleInputName2">Type</label>
@@ -247,7 +244,9 @@ conn = jsforce.browser.connection;
 </div>
 <script type="text/javascript">
   var app = angular.module('SFDCCustomObjectHelper',["ngTable"]);
-    app.controller('ListCustomerObjCtrl',function(){
+    app.controller('ListCustomerObjCtrl',function($rootScope){
+      self=this;
+      this.custObj;//;='ABC';
       this.fieldType ='Text';
       this.tab
       this.numOfFields=1;
@@ -279,17 +278,41 @@ conn = jsforce.browser.connection;
      this.change = function(val){
        val.api = val.label.replace(/[/\s-]/g,'_')+'__c';
      }
+
+     $rootScope.$on('ObjectNameChange',function(event,data){
+          self.custObj=JSON.parse(data);
+          console.log(self.custObj.name);
+     });
   });
+
+    app.controller('AllCustomerObjCtrl',function($rootScope){
+
+        self = this;
+        this.selObj;
+        this.objets =[{id:1,name:'Account'}, {id:2,name:'Action Link Group Template'}];
+        this.clickBtn = function(){
+          $rootScope.$emit('ObjectNameChange',this.selObj);
+        }
+    });
 
   app.controller("demoController", demoController);
   demoController.$inject = ["NgTableParams"];
 
   function demoController(NgTableParams) {
     var self=this;
-    conn.query("select name from Account",function(data){
-      self.account = data;
-      console.console.log(self.account);
-    });
+
+    /*conn.describeGlobal(function(err, res) {
+        if (err) { return console.error(err); }
+        console.log('Num of SObjects : ' + res.sobjects.length);
+        var objNames= res.sobjects.filter(function(item){
+          return item.layoutable;
+        });
+        console.log(objNames.length);
+        objNames.forEach(function(i){
+           console.log(i.label);
+        });
+        // ...
+      });*/
 
     this.simpleList = [{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29},{name:'ab',age:29}];
     this.customConfigParams = createUsingFullOptions();
