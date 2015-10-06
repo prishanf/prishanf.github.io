@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Index</title>
-    <link rel="stylesheet" href="../asset/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../asset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../asset/bootstrap/css/dropdowns-enhancement.css">
+
 
   </head>
   <body ng-app="SFDCAdminHelper" class="document">
@@ -46,8 +48,6 @@
         <!--/.navbar-collapse -->
       </div>
     </div>
-
-
     <div id="oauth-dialog" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -75,7 +75,6 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
     <!-- headline -->
     <div id="headline">
       <div class="container">
@@ -87,24 +86,37 @@
         </div>
       </div>
     </div>
-
     <div id="content">
       <div class="row">
         <div class="col-md-12">
               <div ng-controller="SFDCObjectController as ctrl">
-                  {{ctrl.objects}}
-                  {{ctrl.artist}}
                   <div class="col-md-6">
-                  <table class="table table-condensed table-bordered table-striped">
-                    <thead>
-                      <tr><th>Name</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr ng-repeat="row in ctrl.objects">
-                          <td>{{row.label}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Custom Objects
+                      <div class="btn-group pull-right">
+                      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" data-placeholder="false"><span class="glyphicon glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+                        <ul class="dropdown-menu noclose">
+                          <li ng-repeat="col in ctrl.cols">
+                            <input type="checkbox" ng-model="col.select" id="ck_{{$index}}" name="ck_{{$index}}">
+                            <label for="ck_{{$index}}">{{col.name | uppercase}}</label>
+                          </li>
+                        </ul>
+                    </div>
+                    </div>
+                    <!-- Table -->
+                    <table class="table table-condensed table-bordered table-striped">
+                      <thead>
+                        <tr><th ng-repeat="h in ctrl.cols" ng-show="h.select">{{h.name | uppercase}}</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="row in ctrl.objects">
+                            <td ng-show="h.select" ng-repeat="h in ctrl.cols">{{row[h.name]}}</td>
+                            <!-- <td>{{row.label}}</td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                   </div>
                   <div class="col-md-6">
                     {{ctrl.objects}}
@@ -118,6 +130,7 @@
 
     <script src="../asset/jquery/jquery.min.js"></script>
     <script src="../asset/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../asset/bootstrap/js/dropdowns-enhancement.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.5.0/jsforce.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
 
