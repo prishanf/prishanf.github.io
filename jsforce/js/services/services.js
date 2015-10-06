@@ -52,7 +52,7 @@ SFDCAdminHelperControllers
 
   }
 
-  service.getObjectsDetailsSDFC = function(objName) {
+  service.getObjectsDetailsSFDC = function(objName) {
     var deferred = $q.defer();
     console.log(objName);
     conn.sobject(objName).describe$(function(err, meta) {
@@ -66,7 +66,7 @@ SFDCAdminHelperControllers
 
   service.getObjects = function(){
       if(conn.accessToken){
-        return service.getObjectsSDFC();
+        return service.getObjectsSFDC();
       }else{
         return service.getObjectsLocal();
       }
@@ -74,7 +74,7 @@ SFDCAdminHelperControllers
 
   service.getObjectsDetails = function(){
       if(conn.accessToken){
-        return service.getObjectsDetailsSDFC();
+        return service.getObjectsDetailsSFDC();
       }else{
         return service.getObjectsDetailsLocal();
       }
