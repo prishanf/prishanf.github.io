@@ -41,7 +41,7 @@ SFDCAdminHelperControllers
 
   service.getObjectsDetailsLocal = function(objName) {
     var deferred = $q.defer();
-    console.log(objName);
+    console.log('getObjectsDetailsLocal ' + objName);
     $http({
         method: 'GET',
         url: '/objectDetails.json',
@@ -55,7 +55,7 @@ SFDCAdminHelperControllers
 
   service.getObjectsDetailsSFDC = function(objName) {
     var deferred = $q.defer();
-    console.log(objName);
+    console.log('getObjectsDetailsSFDC ' + objName);
     conn.sobject(objName).describe$(function(err, meta) {
       if (err) { return console.error(err); }
       console.log('Label : ' + meta.label);
@@ -73,11 +73,11 @@ SFDCAdminHelperControllers
       }
   }
 
-  service.getObjectsDetails = function(){
+  service.getObjectsDetails = function(objName){
       if(conn.accessToken){
-        return service.getObjectsDetailsSFDC();
+        return service.getObjectsDetailsSFDC(objName);
       }else{
-        return service.getObjectsDetailsLocal();
+        return service.getObjectsDetailsLocal(objName);
       }
   }
 

@@ -25,7 +25,6 @@ SFDCAdminHelperControllers.controller('SFDCObjectDetailCtrl', ['$routeParams','m
     self.objectname = $routeParams.objName;
     self.custObject ={};
     this.cols =['label','name','type','length'];
-    console.log($routeParams.phoneId);
     myFactory.getObjectsDetails(self.objectname).then(function(data){
       self.custObject = data;
     });
