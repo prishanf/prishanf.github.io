@@ -39,8 +39,9 @@ SFDCAdminHelperControllers
       return deferred.promise;
   }
 
-  service.getObjectsDetailsLocal = function() {
-    var deferred = $q.defer()
+  service.getObjectsDetailsLocal = function(objName) {
+    var deferred = $q.defer();
+    console.log(objName);
     $http({
         method: 'GET',
         url: '/objectDetails.json',
