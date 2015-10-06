@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12">
+          <label>Any: <input ng-model="ctrl.search.$"></label>
+          <label>Label:  <input ng-model="ctrl.search.label"></label>
+          <label>Custom settings: <input type="checkbox" ng-model="ctrl.search.customSetting"></label>
+            <div class="col-md-12">
+              <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">Custom Objects
+                <div class="btn-group pull-right">
+                <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" data-placeholder="false"><span class="glyphicon glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+                  <ul class="dropdown-menu noclose">
+                    <li ng-repeat="col in ctrl.cols">
+                      <input type="checkbox" ng-model="col.select" id="ck_{{$index}}" name="ck_{{$index}}">
+                      <label for="ck_{{$index}}">{{col.name | uppercase}}</label>
+                    </li>
+                  </ul>
+              </div>
+              </div>
+              <!-- Table -->
+              <table class="table table-condensed table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th style="width:20px">Action</th>
+                    <th ng-repeat="h in ctrl.cols " ng-show="h.select">{{h.name | uppercase}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="row in ctrl.objects | filter:ctrl.search">
+                      <th style="width:20px"><a href="#/objects/{{row.name}}">Detail</a></th>
+                      <td ng-show="h.select" ng-repeat="h in ctrl.cols">{{row[h.name]}}</td>
+                      <!-- <td>{{row.label}}</td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </div>
+
+  </div>
+
+</div>

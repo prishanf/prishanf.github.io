@@ -1,0 +1,26 @@
+<h3>Details For {{ctrl.custObject.name}}</h3>
+<label>Any: <input ng-model="ctrl.search.$"></label>
+<table class="table table-condensed table-bordered table-striped">
+  <thead>
+    <tr>
+      <th style="width:20px">Action</th>
+      <th ng-repeat="h in ctrl.cols ">{{h | uppercase}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="field in ctrl.custObject.fields | filter:ctrl.search">
+        <th style="width:20px">
+          <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">
+            <span  class="glyphicon glyphicon-trash" aria-hidden="true">
+        </th>
+        <td ng-repeat="h in ctrl.cols">
+          <span ng-show="{{h=='length' && field.type=='picklist'}}">
+            <ul>
+              <li ng-repeat="pl in ctrl.getPickListValues(field)">{{pl}}</li>
+            </ul>
+          </span>
+          <span ng-hide="{{h=='length' && field.type=='picklist'}}"> {{field[h]}}</span>
+        </td>
+    </tr>
+  </tbody>
+</table>

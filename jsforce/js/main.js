@@ -51,8 +51,25 @@ $('#oauth-dialog .connect').on('click', function() {
 });
 
 conn = jsforce.browser.connection;
-var app = angular.module('SFDCAdminHelper',['SFDCAdminHelperControllers','SFDCAdminHelperServices']);
+var app = angular.module('SFDCAdminHelper',['ngRoute','SFDCAdminHelperControllers','SFDCAdminHelperServices']);
 var sfdcConn = jsforce.browser.connection;
 
 var SFDCAdminHelperControllers = angular.module('SFDCAdminHelperControllers', []);
 var SFDCAdminHelperControllers = angular.module('SFDCAdminHelperServices', []);
+
+app.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/objects', {
+        templateUrl: 'partials/listObjects.html',
+        controller: 'SFDCObjectController as ctrl'
+      }).
+      when('/objects/:objName', {
+        templateUrl: 'partials/object-detail.html',
+        controller: 'SFDCObjectDetailCtrl',
+        controllerAs: "ctrl"
+      }).
+      otherwise({
+        redirectTo: '/objects'
+      });
+  }]);

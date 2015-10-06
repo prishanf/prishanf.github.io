@@ -6,17 +6,6 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../asset/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../asset/bootstrap/css/dropdowns-enhancement.css">
-    <script src="../asset/jquery/jquery.min.js"></script>
-    <script src="../asset/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../asset/bootstrap/js/dropdowns-enhancement.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.5.0/jsforce.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js"></script>
-
-
-    <script src="../js/main.js" charset="utf-8"></script>
-    <script src="../js/controllers/controllers.js" charset="utf-8"></script>
-    <script src="../js/services/services.js" charset="utf-8"></script>
 
 
   </head>
@@ -98,9 +87,57 @@
       </div>
     </div>
     <div id="content">
-      <div ng-view></div>
+      <div class="row">
+        <div class="col-md-12">
+              <div ng-controller="SFDCObjectController as ctrl">
+                <label>Any: <input ng-model="ctrl.search.$"></label>
+                <label>Label:  <input ng-model="ctrl.search.label"></label>
+                <label>Custom settings: <input type="checkbox" ng-model="ctrl.search.customSetting"></label>
+                  <div class="col-md-12">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Custom Objects
+                      <div class="btn-group pull-right">
+                      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" data-placeholder="false"><span class="glyphicon glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+                        <ul class="dropdown-menu noclose">
+                          <li ng-repeat="col in ctrl.cols">
+                            <input type="checkbox" ng-model="col.select" id="ck_{{$index}}" name="ck_{{$index}}">
+                            <label for="ck_{{$index}}">{{col.name | uppercase}}</label>
+                          </li>
+                        </ul>
+                    </div>
+                    </div>
+                    <!-- Table -->
+                    <table class="table table-condensed table-bordered table-striped">
+                      <thead>
+                        <tr><th ng-repeat="h in ctrl.cols " ng-show="h.select">{{h.name | uppercase}}</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="row in ctrl.objects | filter:ctrl.search">
+                            <td ng-show="h.select" ng-repeat="h in ctrl.cols">{{row[h.name]}}</td>
+                            <!-- <td>{{row.label}}</td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+              </div>
+        </div>
+
+      </div>
     </div>
 
+    <script src="../asset/jquery/jquery.min.js"></script>
+    <script src="../asset/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../asset/bootstrap/js/dropdowns-enhancement.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.5.0/jsforce.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-route.min.js"></script>
+
+
+    <script src="../js/main.js" charset="utf-8"></script>
+    <script src="../js/controllers/controllers.js" charset="utf-8"></script>
+    <script src="../js/services/services.js" charset="utf-8"></script>
 
   </body>
 </html>
