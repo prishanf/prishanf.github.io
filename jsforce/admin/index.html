@@ -94,6 +94,22 @@
               <div ng-controller="SFDCObjectController as ctrl">
                   {{ctrl.objects}}
                   {{ctrl.artist}}
+                  <div class="col-md-6">
+                  <table class="table table-condensed table-bordered table-striped">
+                    <thead>
+                      <tr><th>Name</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="row in ctrl.objects">
+                          <td>{{row}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-md-6">
+                    {{ctrl.objects}}
+                    {{ctrl.artist}}
+                  </div>
               </div>
         </div>
 

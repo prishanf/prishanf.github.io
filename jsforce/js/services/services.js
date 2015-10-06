@@ -1,5 +1,5 @@
 SFDCAdminHelperControllers
-.factory('myFactory', function(){
+.factory('myFactory', function($http,$q){
   var _artist = 'Shakira';
   var service = {};
 
@@ -8,26 +8,34 @@ SFDCAdminHelperControllers
   // }
 
   service.getArtist = function() {
-    console.log('aaa1');
-    $.get('/data.json',function( d ) {
-      alert( "Load was performed." + d );
-      console.log('aaa2');
+    var deferred = $q.defer()
+    $http({
+        method: 'GET',
+        url: '/data.json',
+        responseType :'json'
+        }).then(function successCallback(response) {
+           deferred.resolve(response.data);
     });
-    console.log('aaa3');
+    return deferred.promise;
+
   }
 
-  service.Objects = function() {
+  service.getObjects = function() {
+    var deferred = $q.defer();
     conn.describeGlobal(function(err, res) {
-        if (err) { return console.error(err); }
+        if (err) {
+          deferred.resolve(['Error']);
+          return console.error(err);
+         }
         var objNames= res.sobjects.filter(function(item){
           return item.layoutable;
         });
         console.log(objNames.length);
         objNames.forEach(function(i){
-           console.log(i.label);
         });
-        return objNames;
+        deferred.resolve(objNames);
       });
+      return deferred.promise;
   }
 
   return service;
