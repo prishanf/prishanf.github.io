@@ -90,7 +90,10 @@
       <div class="row">
         <div class="col-md-12">
               <div ng-controller="SFDCObjectController as ctrl">
-                  <div class="col-md-6">
+                <label>Any: <input ng-model="ctrl.search.$"></label> <br>
+                <label>Name only <input ng-model="ctrl.search.label"></label><br>
+                <label>Phone only <input ng-model="ctrl.search.api"></label><br>
+                  <div class="col-md-12">
                     <div class="panel panel-default">
                     <!-- Default panel contents -->
                     <div class="panel-heading">Custom Objects
@@ -107,20 +110,16 @@
                     <!-- Table -->
                     <table class="table table-condensed table-bordered table-striped">
                       <thead>
-                        <tr><th ng-repeat="h in ctrl.cols" ng-show="h.select">{{h.name | uppercase}}</th></tr>
+                        <tr><th ng-repeat="h in ctrl.cols " ng-show="h.select">{{h.name | uppercase}}</th></tr>
                       </thead>
                       <tbody>
-                        <tr ng-repeat="row in ctrl.objects">
+                        <tr ng-repeat="row in ctrl.objects | filter:ctrl.search">
                             <td ng-show="h.select" ng-repeat="h in ctrl.cols">{{row[h.name]}}</td>
                             <!-- <td>{{row.label}}</td> -->
                         </tr>
                       </tbody>
                     </table>
                   </div>
-                  </div>
-                  <div class="col-md-6">
-                    {{ctrl.objects}}
-                    {{ctrl.artist}}
                   </div>
               </div>
         </div>
