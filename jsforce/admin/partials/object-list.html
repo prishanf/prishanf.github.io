@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">Custom Objects
+                <div class="btn-group pull-right">
+                <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" data-placeholder="false"><span class="glyphicon glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+                  <ul class="dropdown-menu noclose">
+                    <li ng-repeat="col in ctrl.colsd">
+                      <input type="checkbox" ng-model="col.show" id="ck_{{$index}}" name="ck_{{$index}}">
+                      <label for="ck_{{$index}}">{{col.title}}</label>
+                    </li>
+                  </ul>
+              </div>
+              </div>
+              <div class="panel-body">
+                <!-- Table -->
+                <table ng-table-dynamic="ctrl.tableParams with ctrl.colsd"
+                   class="table table-condensed table-bordered table-striped">
+                  <tr ng-repeat="row in $data">
+                    <td ng-repeat="col in $columns" ng-bind-html="col.getValue(this, row)"></td>
+                  </tr>
+                </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
