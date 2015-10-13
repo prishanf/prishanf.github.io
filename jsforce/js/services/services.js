@@ -1,5 +1,5 @@
-SFDCAdminHelperControllers
-.factory('myFactory', function($http,$q){
+var SFDCAdminHelperServices = angular.module('SFDCAdminHelperServices', []);
+SFDCAdminHelperServices.factory('myFactory', function($http,$q){
   var service = {};
 
   service.getObjectsLocal = function() {

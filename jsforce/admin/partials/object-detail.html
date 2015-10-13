@@ -1,26 +1,44 @@
-<h3>Details For {{ctrl.custObject.name}}</h3>
-<label>Any: <input ng-model="ctrl.search.$"></label>
-<table class="table table-condensed table-bordered table-striped">
-  <thead>
-    <tr>
-      <th style="width:20px">Action</th>
-      <th ng-repeat="h in ctrl.cols ">{{h | uppercase}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="field in ctrl.custObject.fields | filter:ctrl.search">
-        <th style="width:20px">
-          <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">
-            <span  class="glyphicon glyphicon-trash" aria-hidden="true">
-        </th>
-        <td ng-repeat="h in ctrl.cols">
-          <span ng-show="{{h=='length' && field.type=='picklist'}}">
-            <ul>
-              <li ng-repeat="pl in ctrl.getPickListValues(field)">{{pl}}</li>
-            </ul>
-          </span>
-          <span ng-hide="{{h=='length' && field.type=='picklist'}}"> {{field[h]}}</span>
+
+<div class="headline">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11">
+        <h3>{{ctrl.objectname}} Fields <a class="btn btn-default" href="#/fieldNew/{{ctrl.objectname}}" title="Crate New Field"><span class="glyphicon glyphicon-plus"></span></a></h3>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="container">
+  <table ng-table-dynamic="ctrl.tableParams with ctrl.colsd"
+       class="table table-condensed table-bordered table-striped">
+       <colgroup>
+                 <col width="20%" />
+                 <col width="20%" />
+                 <col width="20%" />
+                 <col width="20%" />
+                 <col width="5%" />
+                 <col width="15%" />
+       </colgroup>
+      <tr ng-repeat="row in $data">
+        <td ng-repeat="col in $columns">{{row[col.field]}}
+          <span ng-if="col.dataType === 'command'">
+              <button class="btn btn-primary btn-sm" ng-click="ctrl.save(row, rowForm)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
+              <button class="btn btn-default btn-sm" ng-click="ctrl.cancel(row, rowForm)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
+              <button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing && row.updateable && row.custom"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-danger btn-sm" ng-click="ctrl.del(row)" ng-if="!row.isEditing && row.updateable && row.custom"><span class="glyphicon glyphicon-trash"></span></button>
+
+            </span>
+          <span ng-if="col.field =='type' && row.type=='picklist'" class="dropdown" style="float:right">
+              <button class="btn btn-info btn-sm" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-align-justify"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <li ng-repeat="val in row.picklistValues">{{val.label}}<span  ng-if="val.defaultValue">-(D)</span></li>
+              </ul>
+            </span>
         </td>
-    </tr>
-  </tbody>
-</table>
+      </tr>
+    </table>
+</div>

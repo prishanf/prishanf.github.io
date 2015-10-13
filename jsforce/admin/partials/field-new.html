@@ -1,0 +1,53 @@
+<div class="headline">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11">
+        <h3>Create new fields for {{ctrl.objectname}}</h3>
+
+      </div>
+    </div>
+    </div>
+</div>
+<div class="container">
+  <div class="row" >
+  <div class="col-md-12">
+        <div>
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="exampleInputName2">Type</label>
+              <select ng-model="ctrl.fieldType" id="select_{{$index}}" class="form-control">
+                <option ng-repeat ="fieldType in ctrl.fieldTypes" value="{{fieldType}}">{{fieldType}}</option>
+             </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail2">Number of Fields</label>
+              <input type="text" class="form-control"  ng-model="ctrl.numOfFields" id="select_{{$index}}" placeholder="Number of fields">
+            </div>
+            <button class="btn btn-default" ng-click="ctrl.addMultipleFields()">Add Multiple</button>
+
+          <br/>
+            <br/>
+          <ul class="list-group">
+            <div class="form-group">
+            <li  class="list-group-item" ng-repeat="field in ctrl.fields">
+              <select ng-model="field.type" id="select_{{$index}}" class="form-control"  >
+                  <option ng-repeat ="fieldType in ctrl.fieldTypes" value="{{fieldType}}">{{fieldType}}</option>
+              </select>
+              <input type="text" ng-model="field.label"  ng-change="ctrl.change(field)" aria-labelledby="select_{{$index}}" placeholder="Label" />
+              <input type="text" ng-model="field.api" aria-labelledby="select_{{$index}}" placeholder="API" />
+              <input style="width:70px" type="text" ng-model="field.length" aria-labelledby="select_{{$index}}" placeholder="Length" ng-hide="field.type =='Currency' || field.type =='Percent' || field.type =='Checkbox'" />
+              <input style="width:70px"type="text" ng-model="field.precision" aria-labelledby="select_{{$index}}" placeholder="Precision" ng-show="field.type=='Currency' || field.type =='Percent'"/>
+              <input style="width:70px" type="text" ng-model="field.scale" aria-labelledby="select_{{$index}}"    placeholder="Scale"  ng-show="field.type=='Currency' || field.type =='Percent'"/>
+              <span ng-click="ctrl.clearField(field)" class="glyphicon glyphicon-remove-circle" aria-hidden="true">
+              <span ng-click="ctrl.removeField(field)" class="glyphicon glyphicon-trash" aria-hidden="true">
+
+            </li>
+            <li class="list-group-item"><span ng-click="ctrl.addField()" class="glyphicon glyphicon-plus" aria-hidden="true"></span></li>
+            </div>
+          </ul>
+            </form>
+        </div>
+        <span ng-click="ctrl.saveFields()" class="glyphicon glyphicon-plus" aria-hidden="true">Save</span>
+  </div>
+</div>
+</div>
